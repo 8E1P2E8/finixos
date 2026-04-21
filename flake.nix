@@ -34,6 +34,7 @@
         polkit
         getty
         bash
+        dhcpcd
       ];
 
       specialArgs = {
