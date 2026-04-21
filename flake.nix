@@ -28,6 +28,7 @@
         (./finix/configuration.nix)
         nix-daemon
         openssh
+        sysklogd
         limine
         sudo
         polkit

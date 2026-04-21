@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/vda2";
+    { device = "/dev/vda2";
       fsType = "ext4";
     };
 
