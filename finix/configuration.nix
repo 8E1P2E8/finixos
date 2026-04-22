@@ -38,6 +38,8 @@
     sudo.enable = true;
 
     bash.enable = true;
+
+    labwc.enable = true;
   };
 
   services = {
@@ -52,7 +54,26 @@
     dhcpcd.enable = true;
 
     iwd.enable = true;
- };
+
+    seatd.enable = true;
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet";
+        };
+      };
+    };
+  };
+
+  fonts = {
+    fontconfig.enable = true;
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      nerd-fonts.fira-code
+    ];
+  };
 
   networking.hostName = "finixos"; # Define your hostname.
 
@@ -63,10 +84,12 @@
   users.users.vitrial = {
     isNormalUser = true;
     description = "test user";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "video" config.services.seatd.group ];
     password = "$6$1aOsu4xRRBDJWA3O$yUIEmHIzcJ2KczaW1RcVc6ji.vtCXND57iIqt8NfZHL7326zAViJrTGZriK.e1/5JovKqh/wElp7VmQB2TbLA.";
     packages = with pkgs; [];
   };
+
+  hardware.graphics.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -77,5 +100,6 @@
     nixos-rebuild-ng
     iputils
     iproute2
+    foot # Choose your preferred wayland terminal here
   ];
 }

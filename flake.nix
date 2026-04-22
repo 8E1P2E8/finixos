@@ -36,6 +36,8 @@
         bash
         dhcpcd
         iwd
+        labwc
+        greetd
       ];
 
       specialArgs = {
