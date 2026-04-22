@@ -1,5 +1,5 @@
 {
-  description = "Nixos VM flake";
+  description = "Minimal finix flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
