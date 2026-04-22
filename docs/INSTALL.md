@@ -29,9 +29,14 @@ Enter the directory you just cloned, and make the following edits to files insid
 ### `finix/hardware-configuration.nix`
 
 This is probably the most annoying one/easiest one. Copy over your `hardware-configuration.nix` found in `/mnt/etc/nixos/` and strip it down to only include the options in the version of the file from this repo.
+
 Additionally, you might need to add `hardware.firmware = [ pkgs.linux-firmware ]` or something similar to guarantee hardware is functioning.
+
 Lastly, if using `mdevd`, replace each `/dev/disk/by-uuid` with the corresponding `/dev/sdX#`.
+
 NOTE: Hopefully this `mdevd` issue will be resolved soon. If it has been and this isn't updated... oops, last step is unneeded.
+
+## Actually installing
 
 Now that everything has been configured for your use case, run the following command, replacing things as needed:
 ```bash
