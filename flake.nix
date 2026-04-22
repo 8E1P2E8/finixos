@@ -35,6 +35,7 @@
         getty
         bash
         dhcpcd
+        iwd
       ];
 
       specialArgs = {
