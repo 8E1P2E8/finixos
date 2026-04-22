@@ -13,11 +13,6 @@
 
   finit.services.nix-daemon = {
     environment.CURL_CA_BUNDLE = config.security.pki.caBundle;
-    #path = [
-    #  config.services.nix-daemon.package
-    #  pkgs.util-linux
-    #  config.services.openssh.package
-    #];
   };
 
   services.nix-daemon = {
