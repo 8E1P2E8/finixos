@@ -18,13 +18,7 @@ Some users get errors from `efibootmgr` after running `nixos-install`. If the er
 
 # Installing
 
-Clone or download this repo to a folder on your system, then make sure you change the username in `./finix/configuration.nix` to whatever the nix systems username actually is, then change the hostname in the same file as well as the configuration name in `flake.nix`. Then you can run
-
-```bash
-nixos-rebuild boot --install-bootloader --sudo --flake .
-```
-
-and reboot. You're in!
+[Installation Instructions](./docs/INSTALL.md)
 
 # Helpful links
 
