@@ -18,7 +18,7 @@
       config.allowUnfree = true;
     };
   in {
-    nixosConfigurations.nixos = finix.lib.finixSystem {
+    nixosConfigurations.finixos = finix.lib.finixSystem {
       inherit (pkgs) lib;
 
       modules = with finix.nixosModules; [

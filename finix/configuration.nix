@@ -10,11 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
-  #boot.loader.grub.enable = false;
-  #boot.loader.grub.device = "/dev/vda";
-  #boot.loader.grub.useOSProber = true;
-
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -42,30 +37,29 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
 
-  programs.limine = {
-    enable = true;
-    settings.editor_enabled = true;
-    force = true;
+  programs = {
+    limine = {
+      enable = true;
+      settings.editor_enabled = true; # Disable on systems that need security
+      force = true;
+    };
+
+    sudo.enable = true;
+
+    bash.enable = true;
   };
 
-  programs.sudo.enable = true;
+  services = {
+    polkit.enable = true;
 
-  programs.bash.enable = true;
+    sysklogd.enable = true;
 
-  services.polkit.enable = true;
+    mdevd.enable = true;
 
-  services.mdevd.enable = true;
+    dhcpcd.enable = true;
+ };
 
-  services.sysklogd.enable = true;
-
-  services.dhcpcd.enable = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "finixos"; # Define your hostname.
 
   # Enable networking
   #networking.networkmanager.enable = true;
@@ -88,17 +82,11 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Configure keymap in X11
-  #services.xserver.xkb = {
-  #  layout = "us";
-  #  variant = "";
-  #};
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.vitrial = {
+  users.users.test = {
     isNormalUser = true;
-    description = "vitrial";
-    extraGroups = [ "networkmanager" "wheel" ];
+    description = "test user";
+    extraGroups = [ "wheel" ];
     packages = with pkgs; [];
   };
 
@@ -108,7 +96,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
     nixos-rebuild-ng
@@ -134,13 +122,4 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  #system.stateVersion = "25.11"; # Did you read the comment?
-
 }
