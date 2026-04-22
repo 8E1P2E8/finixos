@@ -23,6 +23,9 @@ Some users get errors from `efibootmgr` after running `nixos-install`. If the er
 # Helpful links
 
 [Finix](https://github.com/finix-community/finix)
+
 [Finix Options Wiki](https://finix-community.github.io/finix/options.html)
+
 [aanderse Config](https://github.com/aanderse/finix-config)
+
 [Finit](https://github.com/finit-project/finit)
