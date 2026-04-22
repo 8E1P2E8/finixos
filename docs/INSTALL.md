@@ -1,4 +1,4 @@
-# `nixos-install` Installation Instructions
+# `nixos-install` Instructions
 
 ## It's basically NixOS
 
@@ -26,11 +26,13 @@ Enter the directory you just cloned, and make the following edits to files insid
     - `<hash of desired password>` can be generated with the command `mkpasswd -m sha-512 '<desired password>'`
     - NOTE: This is not really recommended for long term use but lets just get into the system first
 
+NOTE: This config includes vim as the only editor. If you want nano, replace `vim` with `nano` in the system packages at this time.
+
 ### `finix/hardware-configuration.nix`
 
 This is probably the most annoying one/easiest one. Copy over your `hardware-configuration.nix` found in `/mnt/etc/nixos/` and strip it down to only include the options in the version of the file from this repo.
 
-Additionally, you might need to add `hardware.firmware = [ pkgs.linux-firmware ]` or something similar to guarantee hardware is functioning.
+Additionally, you likely need to add `hardware.firmware = [ pkgs.linux-firmware ]` or something similar to guarantee hardware is functioning.
 
 Lastly, if using `mdevd`, replace each `/dev/disk/by-uuid` with the corresponding `/dev/sdX#`.
 
@@ -55,7 +57,7 @@ Welcome to finix!
 
 ### You didn't change anything I told you to...
 
-Everything should work mostly as expected. If the `hardware-configuration.nix` file in this repo worked for you: that's a coincidence I promise. PLEASE make your own for future configuration.
+Everything should work mostly as expected. If the `hardware-configuration.nix` file in this repo worked for you: that's a coincidence, I promise. PLEASE make your own for future configuration.
 
 The default username and password are both `vitrial`, but that's public knowledge so I'd definitely change that at some point if I were you.
 
