@@ -18,7 +18,8 @@ If you want a basic graphical setup with a simple login manager, try this instea
 git clone -b graphical https://codeberg.org/vitrial/finix-config <path>
 ```
 
-This will get the branch that includes `labwc` and `greetd`
+This will get the branch that includes `labwc` and `greetd`.
+
 Enter the directory you just cloned, and make the following edits to files inside of it:
 
 ### `flake.nix`
