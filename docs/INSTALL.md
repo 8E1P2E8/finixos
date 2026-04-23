@@ -22,15 +22,17 @@ This will get the branch that includes `labwc` and `greetd`.
 
 Enter the directory you just cloned, and make the following edits to files inside of it:
 
+NOTE: Line numbers depend on which branch you cloned, if you don't see them where they are listed here, scroll up a bit in the file
+
 ### `flake.nix`
 
 - Line 21: `nixosConfigurations.finixos -> nixosConfigurations.<desired profile name>`
 
 ### `finix/configuration.nix`
 
-- Line 66: `networking.hostName = "finixos" -> networking.hostName = "<desired host name>"`
-- Line 90: `users.users.vitrial = { -> users.users.<desired username> = {`
-- Line 94: `password = "<hash of 'vitrial'>" -> password = "<hash of desired password>"`
+- Line 78: `networking.hostName = "finixos" -> networking.hostName = "<desired host name>"`
+- Line 84: `users.users.vitrial = { -> users.users.<desired username> = {`
+- Line 87: `password = "<hash of 'vitrial'>" -> password = "<hash of desired password>"`
     - `<hash of desired password>` can be generated with the command `mkpasswd -m sha-512 '<desired password>'`
     - NOTE: This is not really recommended for long term use but lets just get into the system first
 
@@ -38,7 +40,7 @@ NOTE: This config includes vim as the only editor. If you want nano, replace `vi
 
 ### `finix/hardware-configuration.nix`
 
-This is probably the most annoying one/easiest one. Copy over your `hardware-configuration.nix` found in `/mnt/etc/nixos/` and strip it down to only include the options in the version of the file from this repo.
+This is probably the most annoying one. Copy over your `hardware-configuration.nix` found in `/mnt/etc/nixos/` and strip it down to only include the options in the version of the file from this repo.
 
 Additionally, you likely need to add `hardware.firmware = [ pkgs.linux-firmware ]` or something similar to guarantee hardware is functioning.
 
