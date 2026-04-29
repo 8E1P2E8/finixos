@@ -1,4 +1,7 @@
 # `nixos-install` Instructions
+## Warning
+
+These instructions are likely not as up to date as the ones for the main branch. They should be extremely similar bar a few minor changes and I would suggest following those and checking these if you have any issues. If you can't resolve something specific then open an issue or reach out in the finix discord and I will do my best to help.
 
 ## It's basically NixOS
 
