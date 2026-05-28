@@ -32,7 +32,6 @@
     limine = {
       enable = true;
       settings.editor_enabled = true; # Disable on systems that need security
-      force = true;
     };
 
     sudo.enable = true;
