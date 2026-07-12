@@ -1,4 +1,5 @@
 { pkgs, config, ... }: {
+  imports = [ ./swayw.nix ];
   programs.labwc.enable = true;
   programs.sway.enable = true;
   services.mdevd.enable = true;
